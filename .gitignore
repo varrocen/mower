@@ -2,6 +2,7 @@
 .mvn/
 .project
 .settings/
+.springBeans
 mvnw
 mvnw.cmd
 /target/
