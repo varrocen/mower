@@ -1,6 +1,5 @@
 package com.mowitnow;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,6 +35,12 @@ public class MovableProcessor {
 			List<String> commands = commandFileReader.read(file);
 
 			Optional<Field> field = grassParser.parse(commands);
+			
+			if (field.isPresent()) {
+				
+			} else {
+				log.error("Grass command is invalid : {}", commands.get(0));
+			}
 
 		} catch (Exception e) {
 			log.error("Failed to read file", e);
@@ -47,7 +52,7 @@ public class MovableProcessor {
 		log.debug("Start");
 		log.debug(movable.toString());
 
-		char[] instructions = movable.getInstructions().toCharArray();
+		char[] instructions = movable.getInstructions().toUpperCase().toCharArray();
 		for (int i = 0; i < instructions.length; i++) {
 			switch (instructions[i]) {
 			case 'D':
