@@ -12,7 +12,7 @@ public class Grass implements Field {
 		if (width < 0 || height < 0) {
 			throw new IllegalArgumentException("Width and height can not be negative");
 		}
-		
+
 		this.width = width;
 		this.height = height;
 	}
@@ -21,16 +21,8 @@ public class Grass implements Field {
 		return width;
 	}
 
-	public void setWidth(int width) {
-		this.width = width;
-	}
-
 	public int getHeight() {
 		return height;
-	}
-
-	public void setHeight(int height) {
-		this.height = height;
 	}
 
 	@Override

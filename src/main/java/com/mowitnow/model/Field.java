@@ -4,6 +4,10 @@ import com.mowitnow.utils.Coordinate;
 
 public interface Field {
 
+	public int getWidth();
+
+	public int getHeight();
+
 	/**
 	 * Test if the next position are not out of the field limits
 	 * 

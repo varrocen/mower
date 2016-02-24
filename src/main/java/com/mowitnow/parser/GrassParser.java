@@ -28,7 +28,7 @@ public class GrassParser {
 
 			if (Pattern.matches("^[0-9] [0-9]$", command)) {
 				String[] size = command.split(" ");
-				field = new Grass(-1, Integer.parseInt(size[1]));
+				field = new Grass(Integer.parseInt(size[0]), Integer.parseInt(size[1]));
 			}
 		}
 		return Optional.ofNullable(field);
