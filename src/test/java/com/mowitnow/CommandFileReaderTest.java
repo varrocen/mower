@@ -23,13 +23,13 @@ public class CommandFileReaderTest {
 
 	@Test
 	public void testReadGoodFile() throws IOException {
-		List<String> lines = commandFileReader.read("src/test/resources/mower.txt");
+		List<String> lines = commandFileReader.read("src/test/resources/command-mower.txt");
 		assertThat(lines.size(), equalTo(5));
 	}
 
 	@Test(expected = IOException.class)
 	public void testIOException() throws IOException {
-		List<String> lines = commandFileReader.read("src/test/resources/mower.pdf");
+		List<String> lines = commandFileReader.read("src/test/resources/command-mower.pdf");
 	}
 
 }
