@@ -1,7 +1,11 @@
 package com.mowitnow.utils;
 
 public enum Orientation {
-	NORTH, EAST, SOUTH, WEST;
+
+	/**
+	 * NORTH (N) EAST (E) SOUTH (S) WEST (W)
+	 */
+	N, E, S, W;
 
 	/**
 	 * Rotate 90° clockwise

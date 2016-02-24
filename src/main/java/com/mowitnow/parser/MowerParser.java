@@ -16,6 +16,13 @@ import com.mowitnow.utils.impl.CoordinateImpl;
 @Component
 public class MowerParser {
 
+	/**
+	 * Parse commands and return a list of movable
+	 * 
+	 * @param commands
+	 *            list of commands
+	 * @return list of movable
+	 */
 	public List<Movable> parse(List<String> commands) {
 		List<Movable> mowers = new ArrayList<>();
 
@@ -26,19 +33,24 @@ public class MowerParser {
 
 			// Ignore first command (grass)
 			for (String command : commands.subList(1, commands.size())) {
+
 				if (Pattern.matches("^[0-9] [0-9] [neswNESW]$", command)) {
 					String[] coordinate = command.split(" ");
 					coordinates.add(new CoordinateImpl(Integer.parseInt(coordinate[0]), Integer.parseInt(coordinate[1]),
-							Orientation.NORTH)); // TODO Orientation
+							Orientation.valueOf(coordinate[2].toUpperCase())));
 				} else {
+					// If pattern not matches then this is an instruction
 					instructions.add(command);
 				}
 			}
 
+			// Create mowers
 			for (int i = 0; i < coordinates.size(); i++) {
-				mowers.add(new Mower(coordinates.get(i), instructions.get(i)));
+				if (i < instructions.size()) {
+					mowers.add(new Mower(coordinates.get(i), instructions.get(i)));
+				}
 			}
-			
+
 		}
 		return mowers;
 	}

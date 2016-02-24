@@ -59,22 +59,22 @@ public class Grass implements Field {
 
 		if (isValidCoordinate(coordinate)) {
 			switch (coordinate.getOrientation()) {
-			case NORTH:
+			case N:
 				if (coordinate.getY() + 1 <= height) {
 					isValidNextPosition = true;
 				}
 				break;
-			case EAST:
+			case E:
 				if (coordinate.getX() + 1 <= width) {
 					isValidNextPosition = true;
 				}
 				break;
-			case SOUTH:
+			case S:
 				if (coordinate.getY() - 1 >= 0) {
 					isValidNextPosition = true;
 				}
 				break;
-			case WEST:
+			case W:
 				if (coordinate.getX() - 1 >= 0) {
 					isValidNextPosition = true;
 				}

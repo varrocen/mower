@@ -18,38 +18,38 @@ public class MowerTest {
 
 	@Test
 	public void testMoveNORTH() {
-		Mower mower = new Mower(new CoordinateImpl(0, 0, Orientation.NORTH), "");
+		Mower mower = new Mower(new CoordinateImpl(0, 0, Orientation.N), "");
 		mower.move();
 		assertThat(mower.getCoordinate().getX(), equalTo(0));
 		assertThat(mower.getCoordinate().getY(), equalTo(1));
-		assertThat(mower.getCoordinate().getOrientation(), equalTo(Orientation.NORTH));
+		assertThat(mower.getCoordinate().getOrientation(), equalTo(Orientation.N));
 	}
 
 	@Test
 	public void testMoveEAST() {
-		Mower mower = new Mower(new CoordinateImpl(0, 0, Orientation.EAST), "");
+		Mower mower = new Mower(new CoordinateImpl(0, 0, Orientation.E), "");
 		mower.move();
 		assertThat(mower.getCoordinate().getX(), equalTo(1));
 		assertThat(mower.getCoordinate().getY(), equalTo(0));
-		assertThat(mower.getCoordinate().getOrientation(), equalTo(Orientation.EAST));
+		assertThat(mower.getCoordinate().getOrientation(), equalTo(Orientation.E));
 	}
 
 	@Test
 	public void testMoveSOUTH() {
-		Mower mower = new Mower(new CoordinateImpl(1, 1, Orientation.SOUTH), "");
+		Mower mower = new Mower(new CoordinateImpl(1, 1, Orientation.S), "");
 		mower.move();
 		assertThat(mower.getCoordinate().getX(), equalTo(1));
 		assertThat(mower.getCoordinate().getY(), equalTo(0));
-		assertThat(mower.getCoordinate().getOrientation(), equalTo(Orientation.SOUTH));
+		assertThat(mower.getCoordinate().getOrientation(), equalTo(Orientation.S));
 	}
 
 	@Test
 	public void testMoveWEST() {
-		Mower mower = new Mower(new CoordinateImpl(1, 1, Orientation.WEST), "");
+		Mower mower = new Mower(new CoordinateImpl(1, 1, Orientation.W), "");
 		mower.move();
 		assertThat(mower.getCoordinate().getX(), equalTo(0));
 		assertThat(mower.getCoordinate().getY(), equalTo(1));
-		assertThat(mower.getCoordinate().getOrientation(), equalTo(Orientation.WEST));
+		assertThat(mower.getCoordinate().getOrientation(), equalTo(Orientation.W));
 	}
 
 }

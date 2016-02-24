@@ -1,16 +1,12 @@
 package com.mowitnow.model.impl;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.mowitnow.model.Movable;
 import com.mowitnow.utils.Coordinate;
 
 public class Mower implements Movable {
 
-	private static final Logger log = LoggerFactory.getLogger(Mower.class);
-
 	private Coordinate coordinate;
+
 	private String instructions;
 
 	public Mower(Coordinate coordinate, String instructions) {
@@ -46,7 +42,6 @@ public class Mower implements Movable {
 	 */
 	public void rotate90() {
 		coordinate.rotate90();
-		log.debug("Rotate 90° " + this);
 	}
 
 	/*
@@ -56,7 +51,6 @@ public class Mower implements Movable {
 	 */
 	public void rotate270() {
 		coordinate.rotate270();
-		log.debug("Rotate 270° " + this);
 	}
 
 	/*
@@ -66,22 +60,21 @@ public class Mower implements Movable {
 	 */
 	public void move() {
 		switch (coordinate.getOrientation()) {
-		case NORTH:
+		case N:
 			coordinate.setY(coordinate.getY() + 1);
 			break;
-		case EAST:
+		case E:
 			coordinate.setX(coordinate.getX() + 1);
 			break;
-		case SOUTH:
+		case S:
 			coordinate.setY(coordinate.getY() - 1);
 			break;
-		case WEST:
+		case W:
 			coordinate.setX(coordinate.getX() - 1);
 			break;
 		default:
 			break;
 		}
-		log.debug("Move " + this);
 	}
 
 }
