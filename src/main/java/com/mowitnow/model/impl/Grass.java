@@ -9,7 +9,9 @@ public class Grass implements Field {
 	private int height;
 
 	public Grass(int width, int height) {
-		// TODO test parameters
+		if (width < 0 || height < 0) {
+			throw new IllegalArgumentException("Width and height can not be negative");
+		}
 		
 		this.width = width;
 		this.height = height;

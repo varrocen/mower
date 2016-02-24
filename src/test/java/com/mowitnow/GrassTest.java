@@ -25,16 +25,30 @@ public class GrassTest {
 		grass = new Grass(5, 5);
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void testGrassWidthIllegalArgumentException() {
+		new Grass(-1, 5);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testGrassHeightIllegalArgumentException() {
+		new Grass(5, -1);
+	}
+
+	@Test
+	public void testIsValidCoordinateNull() {
+		assertThat(grass.isValidNextPosition(null), equalTo(false));
+	}
+	
 	@Test
 	public void testIsValidCoordinateReturnFalse() {
 		Coordinate coordinate1 = new CoordinateImpl(-1, -1, Orientation.NORTH);
 		Coordinate coordinate2 = new CoordinateImpl(6, 6, Orientation.NORTH);
 		
-		assertThat(grass.isValidNextPosition(null), equalTo(false));
 		assertThat(grass.isValidNextPosition(coordinate1), equalTo(false));
 		assertThat(grass.isValidNextPosition(coordinate2), equalTo(false));
 	}
-
+	
 	@Test
 	public void testIsValidNextPositionNORTHReturnTrue() {
 		Coordinate coordinate = new CoordinateImpl(0, 4, Orientation.NORTH);
