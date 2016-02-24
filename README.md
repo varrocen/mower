@@ -16,3 +16,7 @@ Run the application
 To run the application, execute:
 
     mvn package && java -jar target/mower-1.0.0.jar --file command-mower.txt
+
+With two files :
+
+    java -jar target/mower-1.0.0.jar --file command-mower.txt --file other-command-mower.txt
