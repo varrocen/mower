@@ -41,12 +41,27 @@ public class GrassTest {
 	}
 	
 	@Test
-	public void testIsValidCoordinateReturnFalse() {
-		Coordinate coordinate1 = new CoordinateImpl(-1, -1, Orientation.NORTH);
-		Coordinate coordinate2 = new CoordinateImpl(6, 6, Orientation.NORTH);
-		
-		assertThat(grass.isValidNextPosition(coordinate1), equalTo(false));
-		assertThat(grass.isValidNextPosition(coordinate2), equalTo(false));
+	public void testIsValidNextPositionXNegativeReturnFalse() {
+		Coordinate coordinate = new CoordinateImpl(-1, 0, Orientation.NORTH);
+		assertThat(grass.isValidNextPosition(coordinate), equalTo(false));
+	}
+	
+	@Test
+	public void testIsValidNextPositionXOutLimitReturnFalse() {
+		Coordinate coordinate = new CoordinateImpl(6, 0, Orientation.NORTH);
+		assertThat(grass.isValidNextPosition(coordinate), equalTo(false));
+	}
+	
+	@Test
+	public void testIsValidNextPositionYNegativeReturnFalse() {
+		Coordinate coordinate = new CoordinateImpl(0, -1, Orientation.NORTH);
+		assertThat(grass.isValidNextPosition(coordinate), equalTo(false));
+	}
+	
+	@Test
+	public void testIsValidNextPositionYOutLimitReturnFalse() {
+		Coordinate coordinate = new CoordinateImpl(0, 6, Orientation.NORTH);
+		assertThat(grass.isValidNextPosition(coordinate), equalTo(false));
 	}
 	
 	@Test
