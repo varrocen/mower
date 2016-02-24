@@ -6,9 +6,9 @@ import static org.junit.Assert.assertThat;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -21,21 +21,17 @@ import com.mowitnow.utils.impl.CoordinateImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MowerApplication.class)
-public class MovableServiceTest {
+public class MovableProcessorTest {
 
-	private MovableService movableService;
-
-	@Before
-	public void setUp() {
-		movableService = new MovableService();
-	}
+	@Autowired
+	private MovableProcessor movableProcessor;
 
 	@Test
 	public void testMoveMower() {
 		Field grass = new Grass(5, 5);
 		Movable mower = new Mower(new CoordinateImpl(1, 2, Orientation.NORTH), "GAGAGAGAA");
 
-		movableService.moveMovable(grass, mower);
+		movableProcessor.moveMovable(grass, mower);
 
 		assertThat(mower.getCoordinate().getX(), equalTo(1));
 		assertThat(mower.getCoordinate().getY(), equalTo(3));
@@ -52,7 +48,7 @@ public class MovableServiceTest {
 		mowers.add(mower1);
 		mowers.add(mower2);
 
-		movableService.moveMovables(grass, mowers);
+		movableProcessor.moveMovables(grass, mowers);
 
 		assertThat(mower1.getCoordinate().getX(), equalTo(1));
 		assertThat(mower1.getCoordinate().getY(), equalTo(3));
