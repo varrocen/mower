@@ -29,7 +29,7 @@ public class CommandFileReaderTest {
 
 	@Test(expected = IOException.class)
 	public void testIOException() throws IOException {
-		List<String> lines = commandFileReader.read("src/test/resources/command-mower.pdf");
+		commandFileReader.read("src/test/resources/command-mower.pdf");
 	}
 
 }
